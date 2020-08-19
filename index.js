@@ -31,7 +31,7 @@ app.listen(port, () => {
 })
 
 app.use('/projects', projectRouter);
-app.use('/actions', projectRouter);
+app.use('/actions', actionsRouter);
 
 
 app.get("*", (req, res) => {

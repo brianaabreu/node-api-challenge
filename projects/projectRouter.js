@@ -4,8 +4,6 @@ router.use(express.json())
 
 const Projects = require('../data/helpers/projectModel')
 
-//get
-
 router.get('/', (req, res) => {
     Projects.get()
         .then(result => {
@@ -60,7 +58,7 @@ router.put('/:id', (req, res) => {
         .then(project => {
             if (!id) {
                 res.status(404).json({ message: "does not exist" })
-            } else if (!req.body.title || !req.body.description) {
+            } else if (!req.params.name || !req.params.description) {
                 res.status(400).json({ errorMessage: "please enter a title and description to modify" })
             } else {
                 res.status(200).json(project)
